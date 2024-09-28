@@ -3,7 +3,12 @@ import os
 
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask
+app = Flask(__name__)
+
+if __name__ == '__main__':
+    app.run(debug=True)
+    
 from flask_sqlalchemy import SQLAlchemy
 import datetime
 
