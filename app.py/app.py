@@ -5,8 +5,13 @@ import datetime
 
 # Create the Flask app
 app = Flask(__name__)
-app.secret_key = ‘super_secret_key’  # Use straight single quotes
+app.secret_key = ‘super_secret_key’  # Ensure these are straight single quotes
 
+# Database setup
+app.config[‘SQLALCHEMY_DATABASE_URI’] = os.environ.get(‘DATABASE_URL’, ‘sqlite:///morgan.db’)
+db = SQLAlchemy(app)
+
+# Define models, routes, etc.
 # Database setup
 app.config[‘SQLALCHEMY_DATABASE_URI’] = os.environ.get(‘DATABASE_URL’, ‘sqlite:///morgan.db’)
 db = SQLAlchemy(app)
