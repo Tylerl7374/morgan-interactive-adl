@@ -5,10 +5,11 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 
 from flask import Flask
 
-# Define the Flask application
 app = Flask(__name__)
 
-# Your routes and other code go here
+@app.route('/')
+def home():
+    return "Hello, Morgan!"
 
 if __name__ == '__main__':
     app.run(debug=True)
