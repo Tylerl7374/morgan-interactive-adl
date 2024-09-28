@@ -7,6 +7,7 @@ import datetime
 app = Flask(__name__)
 app.secret_key = 'super_secret_key'
 
+
 # Database setup - You can use either environment variable or hard-coded SQLite
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///morgan.db')
 db = SQLAlchemy(app)
