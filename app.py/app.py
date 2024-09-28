@@ -1,13 +1,13 @@
-import os
 from flask import Flask, request, redirect, url_for, session, render_template
 from flask_sqlalchemy import SQLAlchemy
+import os
 import datetime
 
 # Create the Flask app
 app = Flask(__name__)
-app.secret_key = ‘super_secret_key’
+app.secret_key = ‘super_secret_key’  # Use straight single quotes
 
-# Database setup - use the environment variable for DATABASE_URL or fall back to SQLite
+# Database setup
 app.config[‘SQLALCHEMY_DATABASE_URI’] = os.environ.get(‘DATABASE_URL’, ‘sqlite:///morgan.db’)
 db = SQLAlchemy(app)
 
