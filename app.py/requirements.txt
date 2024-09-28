@@ -1,4 +1,8 @@
 Flask==2.0.1
 gunicorn==20.1.0
 Flask-SQLAlchemy==2.5.1
-Flask-Admin==1.5.8i
+Flask-Admin==1.5.8
+
+git add requirements.txt
+git commit -m "Fix typo in Flask-Admin version"
+git push origin main
