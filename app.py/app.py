@@ -1,15 +1,17 @@
+import os
 from flask import Flask, request, redirect, url_for, session, render_template
 from flask_sqlalchemy import SQLAlchemy
-import os
 import datetime
 
 # Create the Flask app
 app = Flask(__name__)
-app.secret_key = 'super_secret_key'
+app.secret_key = ‘super_secret_key’
 
-# Database setup - You can use either environment variable or hard-coded SQLite
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///morgan.db')
+# Database setup - use the environment variable for DATABASE_URL or fall back to SQLite
+app.config[‘SQLALCHEMY_DATABASE_URI’] = os.environ.get(‘DATABASE_URL’, ‘sqlite:///morgan.db’)
 db = SQLAlchemy(app)
+
+# Define models, routes, etc.
 
 # Define the correct PIN for Morgan and Admin
 correct_pin = '0215'
