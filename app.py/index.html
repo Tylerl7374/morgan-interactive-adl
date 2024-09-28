@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morgan's Daily Activity Plan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin: 20px;
+        }
+        img {
+            float: left;
+            width: 50px;
+            height: 50px;
+        }
+        .header {
+            text-align: left;
+        }
+        .header h1 {
+            margin-left: 70px;
+        }
+        .header p {
+            margin-left: 70px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="{{ url_for('static', filename='IMG_0860.PNG') }}" alt="Logo">
+            <h1>Morgan's Daily Checklist</h1>
+            <p>{{ Morgan }} - DOB: {{ 02/15/2001 }}</p>
+        </div>
+        <h2>Today's Tasks - {{ today }}</h2>
+        <form action="/submit" method="POST">
+            <div class="form-group">
+                <label for="mood">How are you feeling today?</label>
+                <input type="text" id="mood" name="mood">
+            </div>
+            <div class="form-group">
+                <label>Did you take your medications?</label>
+                <select name="meds_taken">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Rate your anxiety level (1-10):</label>
+                <input type="text" name="anxiety_level">
+            </div>
+            <div class="form-group">
+                <label>Rate your stress level (1-10):</label>
+                <input type="text" name="stress_level">
+            </div>
+            <div class="form-group">
+                <label>Additional Notes:</label><br>
+                <textarea name="notes" rows="4" cols="50"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Complete your tasks for today:</label><br>
+                {% for task in tasks %}
+                <input type="checkbox" name="tasks" value="{{ task }}"> {{ task }}<br>
+                {% endfor %}
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+        <a href="/logout">Logout</a>
+    </div>
+</body>
+</html>

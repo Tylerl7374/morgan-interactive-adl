@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Admin Dashboard - Morgan's Progress</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Mood</th>
+                <th>Medications Taken</th>
+                <th>Tasks Completed</th>
+                <th>Anxiety Level</th>
+                <th>Stress Level</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for log in logs %}
+            <tr>
+                <td>{{ log.date }}</td>
+                <td>{{ log.mood }}</td>
+                <td>{{ log.meds_taken }}</td>
+                <td>{{ log.tasks_completed }}</td>
+                <td>{{ log.anxiety_level }}</td>
+                <td>{{ log.stress_level }}</td>
+                <td>{{ log.notes }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
