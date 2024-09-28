@@ -4,8 +4,11 @@ import os
 import datetime
 
 # Create the Flask app
+from flask import Flask
 app = Flask(__name__)
-app.secret_key = 'super_secret_key'
+
+if __name__ == '__main__':
+    app.run(debug=True)
 
 
 # Database setup - You can use either environment variable or hard-coded SQLite
